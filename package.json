@@ -1,0 +1,23 @@
+{
+  "name": "learning-es6",
+  "version": "0.1.0",
+  "description": "learning es6",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jobara/learning-es6.git"
+  },
+  "keywords": [
+    "learning",
+    "es6"
+  ],
+  "author": "Justin Obara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jobara/learning-es6/issues"
+  },
+  "homepage": "https://github.com/jobara/learning-es6#readme"
+}
