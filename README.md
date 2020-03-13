@@ -10,6 +10,8 @@ Test are written using the [Jest](https://jestjs.io) JavaScript testing framewor
 npm test
 ```
 
+_**NOTE:** While Node 13 [natively supports ES6 Modules](https://medium.com/@nodejs/announcing-core-node-js-support-for-ecmascript-modules-c5d6dc29b663), Jest does not. Until [#9430](https://github.com/facebook/jest/issues/9430) is addressed, [Babel](https://babeljs.io) is needed to transpile ESM to commonjs_
+
 ## Linting
 
 Uses [ESLint](https://eslint.org) to lint JavaScript files.
