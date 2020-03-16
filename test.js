@@ -36,3 +36,28 @@ test("Constants", () => {
   // eslint-disable-next-line no-const-assign
   expect(() => {ARRY = ["NEW"];}).toThrow("Assignment to constant variable.");
 });
+
+/*
+  `var` is function scoped; `let` and `const` are block scoped
+ */
+test("Scoping", () => {
+  var outterVar = 2;
+  let outterLet = 2;
+
+  if (outterVar === outterLet) {
+    const INNER_CONST = 3;
+    var innerVar = INNER_CONST;
+    let innerLet = INNER_CONST;
+
+    outterVar += innerVar;
+    outterLet += innerLet;
+  }
+
+  expect(outterVar).toBe(5);
+  expect(outterLet).toBe(5);
+  expect(innerVar).toBe(3);
+  // eslint-disable-next-line no-undef
+  expect(() => innerLet).toThrow(/not defined/);
+  // eslint-disable-next-line no-undef
+  expect(() => INNER_CONST).toThrow(/not defined/);
+});
