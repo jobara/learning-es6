@@ -61,3 +61,25 @@ test("Scoping", () => {
   // eslint-disable-next-line no-undef
   expect(() => INNER_CONST).toThrow(/not defined/);
 });
+
+/*
+  Arrow functions:
+  - no args requires "()" brackets
+  - single arg doesn't require brackets around args
+  - multiple args require "()" brackets around args
+  - single line statement doesn't require "{}" brackets or explicit return statement
+  - multiline statement requires "{}" brackets and explicit return statement
+ */
+test("Arrow Functions", () => {
+  let getValue = () => "value";
+  let identity = v => v;
+  let sum = (a, b) => a + b;
+  let isOdd = a => {
+    return a % 2 === 0;
+  };
+
+  expect(getValue()).toEqual("value");
+  expect(identity(2)).toBe(2);
+  expect(sum(1, 2)).toBe(3);
+  expect(isOdd(2)).toBe(true);
+});
