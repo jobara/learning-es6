@@ -1,1 +1,5 @@
-export default "test";
+const learn = {};
+
+learn.scope = function () {};
+
+export default learn;
