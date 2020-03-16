@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "npm run lint && jest",
     "lint": "eslint ."
   },
   "repository": {
