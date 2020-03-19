@@ -129,3 +129,22 @@ test("Parameters", () => {
   expect(food).toEqual(["rice", "wheat", "apple", "orange", "banana", "zucchini", "broccoli"]);
   expect(count("mango", ...fruit)).toBe(4);
 });
+
+/*
+  Templates: can be iterpolated with values in scope
+  String.Raw: will return the raw string value with substitutions processed but not escaped values (e.g. \n)
+ */
+test("Templates", () => {
+  let car = {
+    make: "Mazda",
+    model: "3",
+    year: 2020,
+    colour: "black",
+    license: "cvid-019"
+  };
+  let message = `Would the owner of the ${car.colour} ${car.make} ${car.model}, with license plate number ${car.license}, return to the parking lot. Your lights are on.`;
+  let expectedMsg = "Would the owner of the black Mazda 3, with license plate number cvid-019, return to the parking lot. Your lights are on.";
+
+  expect(message).toEqual(expectedMsg);
+  expect(String.raw`my car is a ${car.make}\n`).toEqual("my car is a Mazda\\n");
+});
