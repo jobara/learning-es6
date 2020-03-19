@@ -83,3 +83,49 @@ test("Arrow Functions", () => {
   expect(sum(1, 2)).toBe(3);
   expect(isOdd(2)).toBe(true);
 });
+
+/*
+  Default: can specify a default value in the args list
+  Rest: aggregates remaining arguments under a single named parameter
+  Spread: spreads iterable elements into a literal or parameter
+ */
+test("Parameters", () => {
+  // Defaults
+  let makeCar = (make, model, year = 2020) => {
+    return {
+      make: make,
+      model: model,
+      year: year
+    };
+  };
+
+  expect(makeCar("honda", "civic")).toEqual({make: "honda", model: "civic", year: 2020});
+  expect(makeCar("toyota", "rav4", 2015)).toEqual({make: "toyota", model: "rav4", year: 2015});
+
+  // rest parameter
+  let familyCount = (mom, dad, ...children) => {
+    let count = 0;
+
+    if (mom) {count++;}
+    if (dad) {count++;}
+
+    count += children.length;
+
+    return count;
+  };
+
+  expect(familyCount("Christine", "Tommas")).toBe(2);
+  expect(familyCount("Joy", "Terrence", "Philip", "Mindy")).toBe(4);
+
+  // spread operator
+  let fruit = ["apple", "orange", "banana"];
+  let vegetables = ["zucchini", "broccoli"];
+  let food = ["rice", "wheat", ...fruit, ...vegetables];
+
+  let count = (item, ...items) => {
+    return items.length + 1;
+  };
+
+  expect(food).toEqual(["rice", "wheat", "apple", "orange", "banana", "zucchini", "broccoli"]);
+  expect(count("mango", ...fruit)).toBe(4);
+});
